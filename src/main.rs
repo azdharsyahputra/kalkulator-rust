@@ -7,7 +7,8 @@ fn main() {
         println!("1. Penjumlahan");
         println!("2. Pengurangan");
         println!("3. Pembagian");
-        println!("4. Keluar");
+        println!("4. Perkalian");
+        println!("5. Keluar");
         println!("Input :");
         let mut pilihan = String::new();
         io::stdin()
@@ -29,6 +30,10 @@ fn main() {
 
             }
             "4" => {
+                let hasil = kali();
+                println!("Hasil Perkalian{}",hasil);
+            }
+            "5" => {
                 println!("Keluar dari kalkulator");
                 break;        
 
@@ -105,6 +110,28 @@ fn bagi()-> f32{
 
     let hasil = angka_a as f32 / angka_b as f32;
     println!("Hasil Pembagian {} : {} = {}", angka_a,angka_b,hasil);
+    println!("-------------------------------");
+    hasil
+}
+fn kali() -> i32{
+    println!("Operasi Perkalian Masukan Angka Pertama");
+    let mut a = String::new();
+    io::stdin()
+    .read_line(&mut a)
+    .expect("input angka yang benar");
+
+    println!("Masukan angka kedua");
+    let mut b = String::new();
+    io::stdin()
+    .read_line(&mut b)
+    .expect("input angka yang benar");
+
+    let angka_a: i32= a.trim().parse().expect("bukan angka");
+    let angka_b: i32= b.trim().parse().expect("bukan angka");
+
+    let hasil = angka_a * angka_b;
+    
+    println!("Hasil Perkalian {} x {} = {}", angka_a,angka_b,hasil);
     println!("-------------------------------");
     hasil
 }
